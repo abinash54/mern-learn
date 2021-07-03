@@ -1,0 +1,5 @@
+1. be careful about async awaits, if a function needs to be
+specifically executed only after another function, use keywords
+async awaits
+
+2. 

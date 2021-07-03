@@ -221,21 +221,21 @@ router.put('/experience', [auth, [
 router.delete('/experience/:exp_id', auth, async(req, res)=>{
     try {
         //const exp_id = req.params.exp_id;
-        const profile = Profile.findOne({ user: req.user.id });
-        console.log(profile.experience);
+        const profile = await Profile.findOne({ user: req.user.id });
+        //console.log(profile.experience);
 
         //getting the experience array from profile
-        const target_exp = profile.experience
+        const target_exp =  profile.experience
         .map(feature => feature.id)
         .indexOf(req.params.exp_id);
 
         //delete that experience portion
-        profile.experience.splice(target_exp, 1);
+         profile.experience.splice(target_exp, 1);
 
         //resaving the profile
-        profile.save();
+        await profile.save();
         res.json(profile);
-
+        
 
 
     } catch (error) {
