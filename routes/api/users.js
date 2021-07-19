@@ -12,8 +12,6 @@ const User = require('../../models/User');
 //@route POST api/users
 //@desc test route
 //@access Public
-
-
 router.post('/', [
     check('name', 'Name is required').not().isEmpty(), 
     check('email', 'Email is required').isEmail(),
@@ -34,7 +32,7 @@ router.post('/', [
         let user = await User.findOne({email});
 
         if(user){
-            return res.status(400).json({ errors:[{msg:'User asei kela'}] });
+            return res.status(409).json({ errors:[{msg:'User asei kela'}] });
         }
 
         //get users gravater

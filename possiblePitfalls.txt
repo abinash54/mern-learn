@@ -1,5 +1,11 @@
+to start the server with nodemon : npm run server
+---------------------------------------------------------
+shortcut to create a component : racfe > enter
+
+
+-------------------------------------------------------
 1. be careful about async awaits, if a function needs to be
 specifically executed only after another function, use keywords
 async awaits
 
-2. 
+2. always "export default ComponentName"
